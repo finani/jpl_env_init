@@ -59,7 +59,7 @@ If your module needs a new package (typically apt or pip), and want everyone to 
 
 
 # Useful commands
-> Execute the following commands in <workspace>/src.
+> Execute the following commands in jpl/src.
 
 ## Pull latest code from the servers
 1. vcs-pull
