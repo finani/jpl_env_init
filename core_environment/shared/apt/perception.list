@@ -1,0 +1,18 @@
+# Package list for perception software
+# 
+# * Sort alphabetically in each category
+# * Append inline comment to specify specific Ubunut versions
+#     ex) package-only-available-in-bionic # bionic only
+#         package-only-available-in-xenial # xenial only
+
+# LAMP
+costar-gtsam
+
+# ORB_SLAM2
+costar-pangolin
+libavdevice-dev
+libglew-dev
+libxkbcommon-dev
+
+# Realsense driver
+costar-librealsense2

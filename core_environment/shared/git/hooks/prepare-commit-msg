@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source=$2
+
+# Do no add custom message for command line commit
+if [[ $source != 'message' ]]; then
+  echo "# You are commiting as:" >> $1
+  echo "#   Name : $(git config --get user.name)" >> $1
+  echo "#   Email: $(git config --get user.email)" >> $1
+fi

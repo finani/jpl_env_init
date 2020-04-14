@@ -1,0 +1,112 @@
+#!/usr/bin/env python
+"""Import vcs workspace config for selected profile."""
+
+import argparse
+import argcomplete
+import logging
+import os
+import shlex
+import subprocess
+import yaml
+
+try:
+    from subtenv.__main__ import set_logger
+    set_logger()
+except ImportError:
+    pass
+
+
+log = logging.getLogger(__name__)
+
+configs = {
+    'husky_sim': [
+        'base_station_core.yaml',
+        # 'base_station_sim.yaml',
+        'husky_core.yaml',
+        'husky_sim.yaml',
+    ],
+    'husky_hw': [
+        'husky_core.yaml',
+        'husky_hw.yaml',
+    ],
+    'husky_hw_artifact': [
+        'husky_hw_artifact.yaml',
+    ],
+    'base_station_hw': [
+        'base_station_core.yaml',
+        'base_station_hw.yaml',
+    ],
+    'telemax_sim': [
+        'base_station_core.yaml',
+        # 'base_station_sim.yaml',
+        'telemax_core.yaml',
+        'telemax_sim.yaml',
+    ],
+    'telemax_hw': [
+        'telemax_core.yaml',
+        'telemax_hw.yaml',
+    ],
+    'spot_sim': [
+        'base_station_core.yaml',
+        'spot_core.yaml',
+        'spot_sim.yaml',
+    ],
+    'spot_hw': [
+        'spot_core.yaml',
+        'spot_hw.yaml',
+    ],
+    'scout_sim': [
+        'base_station_core.yaml',
+        'scout_core.yaml',
+        'scout_sim.yaml',
+    ],
+}
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('config', choices=configs.keys())
+    parser.add_argument('--exact', action='store_true', default=False,
+                        help="import from exact commit")
+    parser.add_argument('-c', '--workspace-config-path', default='./core_workspace',
+                        help="path to core_workspace")
+    argcomplete.autocomplete(parser)
+    args = parser.parse_args() 
+
+    # Print info
+    log.info("Selected config: {}".format(args.config))
+    log.info("You will import: {}".format(configs[args.config]))
+
+    # Check if we are in the top of workspace src directory
+    if os.path.basename(os.getcwd()) != 'src':
+        log.error("Please run this program at the top of workspace src directory")
+        return
+    if not os.path.exists(args.workspace_config_path):
+        log.error("core_workspace not found in {}".format(args.workspace_config_path))
+        return
+
+    # Back up current workspace config
+    backup_path = '/tmp/vcs_backup'.format(args.config)
+    log.info("Backing up current config to: %s", backup_path)
+    try:
+        subprocess.check_call(['vcs-split-export', '--exact', '-c', backup_path])
+    except subprocess.CalledProcessError:
+        log.error("Failed to export current workspace config. Skipping back up")
+
+    # TODO: Warn if core_workspace is not latest
+
+    # Checkout repos
+    deps = configs[args.config]
+    for dep in deps:
+        log.info("Importing {}".format(dep))
+        subprocess.check_call(['vcs', 'import', '--input',
+                               os.path.join(args.workspace_config_path, dep)])
+
+    # Update to latest
+    log.info("Updating all repositories")
+    subprocess.check_call(['vcs', 'pull'])
+
+
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO, format='[%(levelname)5s] %(message)s')
+    main()

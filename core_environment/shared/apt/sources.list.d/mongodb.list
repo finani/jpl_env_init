@@ -1,0 +1,1 @@
+deb https://repo.mongodb.org/apt/ubuntu $(lsb_release -sc)/mongodb-org/4.0 multiverse

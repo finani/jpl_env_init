@@ -1,0 +1,1 @@
+deb http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -sc) main

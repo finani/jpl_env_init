@@ -1,0 +1,1 @@
+deb [trusted=yes arch=amd64] file://$HOME/Admin/core_environment/shared/apt/pool/$(lsb_release -sc) ./

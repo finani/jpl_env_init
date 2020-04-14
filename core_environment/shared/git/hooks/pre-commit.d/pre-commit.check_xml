@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# From https://gist.github.com/aschweer/6e63f69b263c5c78ac57
+#
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+  against=HEAD
+else
+  # Initial commit: diff against an empty tree object
+  against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+check_xml_wellformed()
+{
+  for FILE in `git diff-index --name-only --cached $against -- ` ; do
+    # if file is an xml file, check that it is well-formed
+    if [[ $FILE == *.xml ]] || [[ $FILE == *.launch ]] || [[ $FILE == *.test ]]; then
+      if [[ ! -f "$FILE" ]]; then
+        echo "XML check for $FILE: DELETED"
+        continue
+      fi
+      if ! xmllint --noout $FILE; then
+        retval=1
+      else
+        echo "XML check for $FILE: OK"
+      fi
+    fi
+  done
+
+  if [[ $retval -gt 0 ]]; then
+    echo "XML syntax errors have been detected."
+    echo "Please fix them or force the commit with 'git commit -n'."
+    exit $retval
+  fi
+}
+
+check_xml_wellformed

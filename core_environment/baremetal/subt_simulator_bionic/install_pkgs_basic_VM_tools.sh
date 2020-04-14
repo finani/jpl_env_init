@@ -1,0 +1,1 @@
+../../shared/scripts/install_pkgs_basic_VM_tools.sh

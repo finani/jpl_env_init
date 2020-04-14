@@ -1,0 +1,2 @@
+deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
+deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main
