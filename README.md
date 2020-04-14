@@ -56,6 +56,17 @@ If your module needs a new package (typically apt or pip), and want everyone to 
  -  vcs-split-import <config>
 20. catkin build
 
+## Set User Alias
+21. gedit ~/.bashrc
+```
+# Set User Alias
+alias eb="gedit ~/.bashrc"
+alias sb="source ~/.bashrc"
+alias agi="sudo apt-get install"
+alias scout_run="~/jpl/src/scout_sim/simulation_scout/launch/start_scout_sim.sh scout"
+```
+22. source ~/.bashrc
+
 
 
 # Useful commands
