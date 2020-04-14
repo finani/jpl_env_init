@@ -1,5 +1,6 @@
 # SubT Environment Setup
 > Ubuntu 18.04 Bionic
+
 ## Install Minimal dependencies
 1. sudo apt install python3-vcstool python-catkin-tools
 
@@ -31,3 +32,43 @@
 
 ## Add new software dependency
 If your module needs a new package (typically apt or pip), and want everyone to install onto their system, please edit the package list in shared/apt or shared/pip and make a merge request.
+
+
+
+# Initialize workspace from configuration file
+
+## Create a workspace directory
+14. mkdir -p jpl/src
+ - mkdir -p <workspace>/src
+  
+## Initialize ROS workspace overlay (explicit method)
+15. cd jpl
+ - cd <workspace>
+16. catkin config --extend /opt/ros/subt
+ - catkin config --extend <workspace_to_overlay>
+ - The typical overlay targets are: /opt/ros/melodic, /opt/ros/subt. In general, you should use the latter if it exists.
+
+## Set up workspace
+17. cd jpl/src
+ - cd <workspace>/src
+18. git clone https://gitlab.robotics.caltech.edu/rollocopter/core/core_workspace.git
+19. vcs-split-import scout_sim
+ -  vcs-split-import <config>
+20. catkin build
+
+
+
+# Useful commands
+> Execute the following commands in <workspace>/src.
+
+## Pull latest code from the servers
+1. vcs-pull
+
+## Check the statuses of the repositories
+2. vcs-check
+
+## Export current workspace configuration
+3. vcs-split-export
+
+## Export current workspace configuration (exactly the same commits)
+4. vcs-split-export --exact
