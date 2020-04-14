@@ -6,8 +6,8 @@
 ## Install helper tool and Set up dotfiles (one-time)
 2. git clone https://gitlab.robotics.caltech.edu/rollocopter/core/core_environment.git ~/Admin/core_environment
 3. pip2 install -e ~/Admin/core_environment --user
-4. sudo reboot now
-5. subtenv init dotfiles
+4. cd ~/.local/bin && ./subtenv init dotfiles
+5. sudo reboot now
 
 ## Install software
 6. subtenv install base
