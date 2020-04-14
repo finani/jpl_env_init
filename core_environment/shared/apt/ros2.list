@@ -1,9 +1,0 @@
-# Package list for ROS2
-
-ros-dashing-desktop
-ros-dashing-launch-testing-ament-cmake  # Remove after clean up ros1_bridge
-ros-dashing-ros1-bridge
-ros-dashing-rmw-fastrtps-cpp
-ros-dashing-rmw-connext-cpp
-
-python3-colcon-common-extensions

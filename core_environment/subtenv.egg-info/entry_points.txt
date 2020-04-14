@@ -1,3 +1,0 @@
-[console_scripts]
-subtenv = subtenv.__main__:main
-

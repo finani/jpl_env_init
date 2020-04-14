@@ -1,1 +1,0 @@
-../../shared/scripts/install_pkgs_ros.sh

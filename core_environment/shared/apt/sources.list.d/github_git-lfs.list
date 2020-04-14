@@ -1,1 +1,0 @@
-deb https://packagecloud.io/github/git-lfs/ubuntu/ $(lsb_release -sc) main
