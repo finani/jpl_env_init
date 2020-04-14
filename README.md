@@ -1,5 +1,5 @@
 # SubT Environment Setup
-> Ubuntu 18.04 Bionic, ROS Melodic
+> Ubuntu 18.04 Bionic
 ## Install Minimal dependencies
 1. sudo apt install python3-vcstool python-catkin-tools
 
@@ -10,14 +10,17 @@
 
 ## Install software
 5. cd ~/.local/bin && ./subtenv install base
-'''
+```
 [WARNING] subtenv.check: [ 0] SubT simulator not found in standard path: /opt/ros/subt
-'''
+```
 6. cd ~/Admin/core_environment
 7. git lfs pull
 8. subtenv install perception
 9. subtenv install ros2
 10. subtenv install sim
+```
+[WARNING] subtenv.check: [ 0] SubT simulator not found in standard path: /opt/ros/subt
+```
 
 ## Check your configuration
 11. cd ~/.local/bin && ./subtenv check
