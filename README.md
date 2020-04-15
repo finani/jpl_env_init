@@ -59,6 +59,8 @@ If your module needs a new package (typically apt or pip), and want everyone to 
 ## Set User Alias
 21. gedit ~/.bashrc
 ```
+source ~/jpl/devel/setup.bash
+
 # Set User Alias
 alias eb="gedit ~/.bashrc"
 alias sb="source ~/.bashrc"
