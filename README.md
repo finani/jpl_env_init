@@ -22,12 +22,13 @@
 ```
 [WARNING] subtenv.check: [ 0] SubT simulator not found in standard path: /opt/ros/subt
 ```
+11. sudo reboot now
 
 ## Check your configuration
-11. subtenv check
+12. subtenv check
 
 ## Update tool
-12. subtenv update
+13. subtenv update
 
 ## Add new software dependency
 If your module needs a new package (typically apt or pip), and want everyone to install onto their system, please edit the package list in shared/apt or shared/pip and make a merge request.
@@ -37,26 +38,26 @@ If your module needs a new package (typically apt or pip), and want everyone to 
 # Initialize workspace from configuration file
 
 ## Create a workspace directory
-13. mkdir -p jpl/src
+14. mkdir -p jpl/src
  - mkdir -p <workspace>/src
   
 ## Initialize ROS workspace overlay (explicit method)
-14. cd jpl
+15. cd jpl
  - cd <workspace>
-15. catkin config --extend /opt/ros/subt
+16. catkin config --extend /opt/ros/subt
  - catkin config --extend <workspace_to_overlay>
  - The typical overlay targets are: /opt/ros/melodic, /opt/ros/subt. In general, you should use the latter if it exists.
 
 ## Set up workspace
-16. cd jpl/src
+17. cd jpl/src
  - cd <workspace>/src
-17. git clone https://gitlab.robotics.caltech.edu/rollocopter/core/core_workspace.git
-18. vcs-split-import scout_sim
+18. git clone https://gitlab.robotics.caltech.edu/rollocopter/core/core_workspace.git
+19. vcs-split-import scout_sim
  -  vcs-split-import <config>
-19. catkin build
+20. catkin build
 
 ## Set User Alias
-20. gedit ~/.bashrc
+21. gedit ~/.bashrc
 ```
 # Set User Alias
 alias eb="gedit ~/.bashrc"
@@ -64,7 +65,7 @@ alias sb="source ~/.bashrc"
 alias agi="sudo apt-get install"
 alias scout_run="~/jpl/src/scout_sim/simulation_scout/launch/start_scout_sim.sh scout"
 ```
-21. source ~/.bashrc
+22. source ~/.bashrc
 
 
 
