@@ -15,20 +15,19 @@
 ```
 [WARNING] subtenv.check: [ 0] SubT simulator not found in standard path: /opt/ros/subt
 ```
-7. cd ~/Admin/core_environment
-8. git lfs pull
-9. subtenv install perception
-10. subtenv install ros2
-11. subtenv install sim 
+7. cd ~/Admin/core_environment && git lfs pull
+8. subtenv install perception
+9. subtenv install ros2
+10. subtenv install sim 
 ```
 [WARNING] subtenv.check: [ 0] SubT simulator not found in standard path: /opt/ros/subt
 ```
 
 ## Check your configuration
-12. subtenv check
+11. subtenv check
 
 ## Update tool
-13. subtenv update
+12. subtenv update
 
 ## Add new software dependency
 If your module needs a new package (typically apt or pip), and want everyone to install onto their system, please edit the package list in shared/apt or shared/pip and make a merge request.
@@ -38,26 +37,26 @@ If your module needs a new package (typically apt or pip), and want everyone to 
 # Initialize workspace from configuration file
 
 ## Create a workspace directory
-14. mkdir -p jpl/src
+13. mkdir -p jpl/src
  - mkdir -p <workspace>/src
   
 ## Initialize ROS workspace overlay (explicit method)
-15. cd jpl
+14. cd jpl
  - cd <workspace>
-16. catkin config --extend /opt/ros/subt
+15. catkin config --extend /opt/ros/subt
  - catkin config --extend <workspace_to_overlay>
  - The typical overlay targets are: /opt/ros/melodic, /opt/ros/subt. In general, you should use the latter if it exists.
 
 ## Set up workspace
-17. cd jpl/src
+16. cd jpl/src
  - cd <workspace>/src
-18. git clone https://gitlab.robotics.caltech.edu/rollocopter/core/core_workspace.git
-19. vcs-split-import scout_sim
+17. git clone https://gitlab.robotics.caltech.edu/rollocopter/core/core_workspace.git
+18. vcs-split-import scout_sim
  -  vcs-split-import <config>
-20. catkin build
+19. catkin build
 
 ## Set User Alias
-21. gedit ~/.bashrc
+20. gedit ~/.bashrc
 ```
 # Set User Alias
 alias eb="gedit ~/.bashrc"
@@ -65,7 +64,7 @@ alias sb="source ~/.bashrc"
 alias agi="sudo apt-get install"
 alias scout_run="~/jpl/src/scout_sim/simulation_scout/launch/start_scout_sim.sh scout"
 ```
-22. source ~/.bashrc
+21. source ~/.bashrc
 
 
 
