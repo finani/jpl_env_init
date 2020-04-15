@@ -70,7 +70,7 @@ alias scout_run="~/jpl/src/scout_sim/simulation_scout/launch/start_scout_sim.sh 
 
 
 # Useful commands
-> Execute the following commands in jpl/src.
+> Execute the following commands in jpl/src (<_workspace_>/src).
 
 ## Pull latest code from the servers
 1. vcs-pull
