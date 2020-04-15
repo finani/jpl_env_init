@@ -2,7 +2,7 @@
 > Ubuntu 18.04 Bionic
 
 ## Install Minimal dependencies
-1. sudo apt install python3-vcstool python-catkin-tools
+1. sudo apt install python3-vcstool python-catkin-tools python-pip
 
 ## Install helper tool and Set up dotfiles (one-time)
 2. git clone https://gitlab.robotics.caltech.edu/rollocopter/core/core_environment.git ~/Admin/core_environment
