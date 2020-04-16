@@ -42,14 +42,14 @@ If your module needs a new package (typically apt or pip), and want everyone to 
  - mkdir -p <_workspace_>/src
   
 ## Initialize ROS workspace overlay (explicit method)
-15. cd jpl
+15. cd ~/jpl
  - cd <_workspace_>
 16. catkin config --extend /opt/ros/subt
  - catkin config --extend <_workspace_to_overlay_>
  - The typical overlay targets are: /opt/ros/melodic, /opt/ros/subt. In general, you should use the latter if it exists.
 
 ## Set up workspace
-17. cd jpl/src
+17. cd ~/jpl/src
  - cd <_workspace_>/src
 18. git clone https://gitlab.robotics.caltech.edu/rollocopter/core/core_workspace.git
 19. vcs-split-import scout_sim
