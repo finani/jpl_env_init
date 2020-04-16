@@ -76,6 +76,19 @@ libgazebo_gps_plugin.so
 libgazebo_mavlink_interface.so
 libgazebo_imu_plugin.so
 ```
+
+### 1st error
+Command 'roslaunch' not found, but can be installed with:
+sudo apt install python-roslaunch
+
+1. gedit ~/.bashrc
+```
+source ~/jpl/devel/setup.bash
+```
+
+### 2nd error
+
+
 ~/jpl/src/scout_core/core_capability/bringup_gazebo/launch/spawn_scout.launch
 ~/jpl/src/scout_core/core_robot_model/scout_description/launch/description.launch
 /usr/share/gazebo/setup.sh
