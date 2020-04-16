@@ -73,6 +73,30 @@ alias scout_run="~/jpl/src/scout_sim/simulation_scout/launch/start_scout_sim.sh 
 ```
 26. source ~/.bashrc
 27. scout_run
+
+### 1st error
+```
+Command 'roslaunch' not found, but can be installed with:
+sudo apt install python-roslaunch
+```
+- gedit ~/.bashrc
+```
+source ~/jpl/devel/setup.bash
+```
+
+### 2nd error
+```
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_multirotor_base_plugin.so: libgazebo_multirotor_base_plugin.so: cannot open shared object file: No such file or directory
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_motor_model.so: libgazebo_motor_model.so: cannot open shared object file: No such file or directory
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_motor_model.so: libgazebo_motor_model.so: cannot open shared object file: No such file or directory
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_motor_model.so: libgazebo_motor_model.so: cannot open shared object file: No such file or directory
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_motor_model.so: libgazebo_motor_model.so: cannot open shared object file: No such file or directory
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_gps_plugin.so: libgazebo_gps_plugin.so: cannot open shared object file: No such file or directory
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_mavlink_interface.so: libgazebo_mavlink_interface.so: cannot open shared object file: No such file or directory
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_imu_plugin.so: libgazebo_imu_plugin.so: cannot open shared object file: No such file or directory
+[Err] [Plugin.hh:178] Failed to load plugin libgazebo_imu_plugin.so: libgazebo_imu_plugin.so: cannot open shared object file: No such file or directory
+```
+> Missed .so files
 ```
 libgazebo_multirotor_base_plugin.so
 libgazebo_motor_model.so
@@ -80,19 +104,7 @@ libgazebo_gps_plugin.so
 libgazebo_mavlink_interface.so
 libgazebo_imu_plugin.so
 ```
-
-### 1st error
-Command 'roslaunch' not found, but can be installed with:
-sudo apt install python-roslaunch
-
-- gedit ~/.bashrc
-```
-source ~/jpl/devel/setup.bash
-```
-
-### 2nd error
-
-
+> 
 ~/jpl/src/scout_core/core_capability/bringup_gazebo/launch/spawn_scout.launch
 ~/jpl/src/scout_core/core_robot_model/scout_description/launch/description.launch
 /usr/share/gazebo/setup.sh
