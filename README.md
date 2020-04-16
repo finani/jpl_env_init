@@ -68,6 +68,17 @@ alias agi="sudo apt-get install"
 alias scout_run="~/jpl/src/scout_sim/simulation_scout/launch/start_scout_sim.sh scout"
 ```
 22. source ~/.bashrc
+23. scout_run
+```
+libgazebo_multirotor_base_plugin.so
+libgazebo_motor_model.so
+libgazebo_gps_plugin.so
+libgazebo_mavlink_interface.so
+libgazebo_imu_plugin.so
+```
+~/jpl/src/scout_core/core_capability/bringup_gazebo/launch/spawn_scout.launch
+~/jpl/src/scout_core/core_robot_model/scout_description/launch/description.launch
+/usr/share/gazebo/setup.sh
 
 
 
